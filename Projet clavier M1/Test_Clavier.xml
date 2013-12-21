@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<clavier>
+  <infos>
+    <nblignes nb="3" />
+    <nbcolones nb="10" />
+  </infos>
+  <listetouches>
+    <touche char="a" lab="a" type="v" action="lettre" />
+    <touche char="z" lab="z" type="c" action="lettre" />
+    <touche char="e" lab="e" type="v" action="lettre" />
+    <touche char="r" lab="r" type="c" action="lettre" />
+    <touche char="t" lab="t" type="c" action="lettre" />
+    <touche char="y" lab="y" type="v" action="lettre" />
+    <touche char="u" lab="u" type="v" action="lettre" />
+    <touche char="i" lab="i" type="v" action="lettre" />
+    <touche char="o" lab="o" type="v" action="lettre" />
+    <touche char="p" lab="p" type="c" action="lettre" />
+    <touche char="q" lab="q" type="c" action="lettre" />
+    <touche char="s" lab="s" type="c" action="lettre" />
+    <touche char="d" lab="d" type="c" action="lettre" />
+    <touche char="f" lab="f" type="c" action="lettre" />
+    <touche char=" " lab="Space" type="c" action="lettre" />
+    <touche char="g" lab="g" type="c" action="lettre" />
+    <touche char="h" lab="h" type="c" action="lettre" />
+    <touche char="j" lab="j" type="c" action="lettre" />
+    <touche char="k" lab="k" type="c" action="lettre" />
+    <touche char="" lab="Enter" type="e" action="enter" />
+    <touche char="l" lab="l" type="c" action="lettre" />
+    <touche char="m" lab="m" type="c" action="lettre" />
+    <touche char="w" lab="w" type="c" action="lettre" />
+    <touche char="x" lab="x" type="c" action="lettre" />
+    <touche char="c" lab="c" type="c" action="lettre" />
+    <touche char="v" lab="v" type="c" action="lettre" />
+    <touche char="b" lab="b" type="c" action="lettre" />
+    <touche char="n" lab="n" type="c" action="lettre" />
+    <touche char="" lab="BackSpace" type="b" action="backspace" />
+  </listetouches>
+</clavier>

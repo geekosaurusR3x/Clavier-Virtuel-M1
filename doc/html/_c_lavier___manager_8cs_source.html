@@ -1,0 +1,268 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<title>Projet M1:  Fichier source de CLavier_Manager.cs</title>
+
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+
+</head>
+<body>
+<div id="top"><!-- do not remove this div! -->
+
+
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  
+  
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Projet M1
+   
+   </div>
+   <div id="projectbrief">Clavier Virtuel en C#</div>
+  </td>
+  
+  
+  
+ </tr>
+ </tbody>
+</table>
+</div>
+
+<!-- Généré par Doxygen 1.7.6.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Page&#160;principale</span></a></li>
+      <li><a href="namespaces.html"><span>Paquetages</span></a></li>
+      <li><a href="annotated.html"><span>Classes</span></a></li>
+      <li class="current"><a href="files.html"><span>Fichiers</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Liste&#160;des&#160;fichiers</span></a></li>
+    </ul>
+  </div>
+</div>
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+  initNavTree('_c_lavier___manager_8cs.html','');
+</script>
+<div id="doc-content">
+<div class="header">
+  <div class="headertitle">
+<div class="title">CLavier_Manager.cs</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="_c_lavier___manager_8cs.html">Aller à la documentation de ce fichier.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 ﻿using System;
+<a name="l00002"></a>00002 <span class="keyword">using</span> System.Collections.Generic;
+<a name="l00003"></a>00003 <span class="keyword">using</span> System.Linq;
+<a name="l00004"></a>00004 <span class="keyword">using</span> System.Text;
+<a name="l00005"></a>00005 <span class="keyword">using</span> System.Drawing;
+<a name="l00006"></a>00006 <span class="keyword">using</span> System.Windows.Forms;
+<a name="l00007"></a>00007 
+<a name="l00018"></a>00018 <span class="keyword">namespace </span>Virtual_Keyboard
+<a name="l00019"></a>00019 {
+<a name="l00023"></a><a class="code" href="class_virtual___keyboard_1_1_keyboard___manager.html">00023</a>     <span class="keyword">class </span><a class="code" href="class_virtual___keyboard_1_1_keyboard___manager.html">Keyboard_Manager</a>
+<a name="l00024"></a>00024     {
+<a name="l00025"></a>00025         <span class="keyword">const</span> <span class="keywordtype">int</span> ZOOM_VALIDATE = 1;
+<a name="l00026"></a>00026         <a class="code" href="class_virtual___keyboard_1_1_keyboard.html">Keyboard</a> _Clavier;
+<a name="l00027"></a>00027         <a class="code" href="class_virtual___keyboard_1_1_keyboard___graphics.html">Keyboard_Graphics</a> _Graphics;
+<a name="l00028"></a>00028         <a class="code" href="class_virtual___keyboard_1_1_zoom.html">Zoom</a> _Zoom;
+<a name="l00029"></a>00029         Boolean _Deplacement;
+<a name="l00030"></a>00030         <span class="keywordtype">int</span> _Sens_Deplacement;
+<a name="l00031"></a>00031         <span class="keywordtype">int</span> _Mouse_X, _Mouse_Y;
+<a name="l00032"></a>00032         <span class="keywordtype">float</span> _Deplacement_X, _Deplacement_Y, _Deplacement_X_Old, _Deplacement_Y_Old;
+<a name="l00033"></a>00033         Projet_clavier_M1.Form1 _Formulaire;
+<a name="l00034"></a>00034 
+<a name="l00041"></a><a class="code" href="class_virtual___keyboard_1_1_keyboard___manager.html#a428bf793e5e84fa77f23b4625fd3b510">00041</a>         <span class="keyword">public</span> <a class="code" href="class_virtual___keyboard_1_1_keyboard___manager.html#a428bf793e5e84fa77f23b4625fd3b510">Keyboard_Manager</a>(Projet_clavier_M1.Form1 f, Graphics g = null)
+<a name="l00042"></a>00042         {
+<a name="l00043"></a>00043             _Formulaire = f;
+<a name="l00044"></a>00044             <a class="code" href="class_virtual___keyboard_1_1_keyboard___manager.html#abb7badd10f6f9dd85c44ef81b70d3aa5">Set_Zoom_Din</a>();
+<a name="l00045"></a>00045             <a class="code" href="class_virtual___keyboard_1_1_keyboard___manager.html#a28535fdd10cc561e5dedf3c14b443e5a">Set_Sens_Normal</a>();
+<a name="l00046"></a>00046             _Clavier = <span class="keyword">new</span> <a class="code" href="class_virtual___keyboard_1_1_keyboard.html">Keyboard</a>();
+<a name="l00047"></a>00047             _Graphics = <span class="keyword">new</span> <a class="code" href="class_virtual___keyboard_1_1_keyboard___graphics.html">Keyboard_Graphics</a>(g);
+<a name="l00048"></a>00048             _Deplacement = <span class="keyword">false</span>;
+<a name="l00049"></a>00049             _Mouse_X = 0;
+<a name="l00050"></a>00050             _Mouse_Y = 0;
+<a name="l00051"></a>00051 
+<a name="l00052"></a>00052         }
+<a name="l00053"></a>00053 
+<a name="l00060"></a><a class="code" href="class_virtual___keyboard_1_1_keyboard___manager.html#ad37e11f79718937cb58be13220fb76ed">00060</a>         <span class="keyword">public</span> <span class="keywordtype">void</span> <a class="code" href="class_virtual___keyboard_1_1_keyboard___manager.html#ad37e11f79718937cb58be13220fb76ed">Load</a>(<span class="keywordtype">string</span> p)
+<a name="l00061"></a>00061         {
+<a name="l00062"></a>00062             _Clavier.<a class="code" href="class_virtual___keyboard_1_1_keyboard.html#a615fc84d7d1be9929d7cff3a08bd7fa8">Largeur_Touche</a> = (int)(_Clavier.<a class="code" href="class_virtual___keyboard_1_1_keyboard.html#a581dc56fc727e4c95b994694ab80d6ee">Largeur_Origin</a> * _Zoom.<a class="code" href="class_virtual___keyboard_1_1_zoom.html#ae36dc326bd9c6a3780184313b3d094bf">Zoom_Value</a>);
+<a name="l00063"></a>00063             _Clavier.<a class="code" href="class_virtual___keyboard_1_1_keyboard.html#a124532dc53d8bd6c9b7d14ecbdaed470">Charger_fichier</a>(p);
+<a name="l00064"></a>00064         }
+<a name="l00065"></a>00065         
+<a name="l00072"></a><a class="code" href="class_virtual___keyboard_1_1_keyboard___manager.html#a16e4da91c5e8650965c2b893c1739c17">00072</a>         <span class="keyword">public</span> <span class="keywordtype">void</span> <a class="code" href="class_virtual___keyboard_1_1_keyboard___manager.html#a16e4da91c5e8650965c2b893c1739c17">Draw</a>()
+<a name="l00073"></a>00073         {
+<a name="l00074"></a>00074             _Graphics.<a class="code" href="class_virtual___keyboard_1_1_keyboard___graphics.html#a4114b7db87d45a544e9aaadd55694980">Clear</a>();
+<a name="l00075"></a>00075             _Clavier.<a class="code" href="class_virtual___keyboard_1_1_keyboard.html#ac5235f6f7441ae9a35024e03300e4b0d">Dessin</a>(_Graphics.<a class="code" href="class_virtual___keyboard_1_1_keyboard___graphics.html#ab3bab0332b96b6a2400a29d8c1e7a1ca">graf</a>);
+<a name="l00076"></a>00076         }
+<a name="l00077"></a>00077 
+<a name="l00083"></a>00083         <span class="keyword">public</span> <span class="keywordtype">float</span> <a class="code" href="class_virtual___keyboard_1_1_zoom.html">Zoom</a>
+<a name="l00084"></a><a class="code" href="class_virtual___keyboard_1_1_keyboard___manager.html#a3dd587237c1fa63ff242d418c78f59bf">00084</a>         {
+<a name="l00085"></a>00085             <span class="keyword">get</span> {<span class="keywordflow">return</span> _Zoom.<a class="code" href="class_virtual___keyboard_1_1_zoom.html#ae36dc326bd9c6a3780184313b3d094bf">Zoom_Value</a>; }
+<a name="l00086"></a>00086         }
+<a name="l00087"></a>00087 
+<a name="l00093"></a>00093         <span class="keyword">public</span> <span class="keywordtype">float</span> <a class="code" href="class_virtual___keyboard_1_1_keyboard___manager.html#a22e7b66bf00b4f2e83060c025c0f1d82">Zoom_Validant</a>
+<a name="l00094"></a><a class="code" href="class_virtual___keyboard_1_1_keyboard___manager.html#a22e7b66bf00b4f2e83060c025c0f1d82">00094</a>         {
+<a name="l00095"></a>00095             <span class="keyword">get</span> { <span class="keywordflow">return</span> _Zoom.<a class="code" href="class_virtual___keyboard_1_1_zoom.html#a5b66bf4d76c91a794071c256337f35ad">Zoom_Valide</a>; }
+<a name="l00096"></a>00096         }
+<a name="l00097"></a>00097 
+<a name="l00103"></a>00103         <span class="keyword">public</span> Boolean <a class="code" href="class_virtual___keyboard_1_1_keyboard___manager.html#ade42f8d3c0a33300bedf21217a97992c">Deplacement</a>
+<a name="l00104"></a><a class="code" href="class_virtual___keyboard_1_1_keyboard___manager.html#ade42f8d3c0a33300bedf21217a97992c">00104</a>         {
+<a name="l00105"></a>00105             <span class="keyword">get</span> { <span class="keywordflow">return</span> _Deplacement; }
+<a name="l00106"></a>00106         }
+<a name="l00112"></a><a class="code" href="class_virtual___keyboard_1_1_keyboard___manager.html#a54cb5f08fd486f08d38683486a7c606d">00112</a>         <span class="keyword">public</span> <span class="keywordtype">void</span> <a class="code" href="class_virtual___keyboard_1_1_keyboard___manager.html#a54cb5f08fd486f08d38683486a7c606d">Set_Graphic</a>(Graphics g)
+<a name="l00113"></a>00113         {
+<a name="l00114"></a>00114             _Graphics.<a class="code" href="class_virtual___keyboard_1_1_keyboard___graphics.html#ab3bab0332b96b6a2400a29d8c1e7a1ca">graf</a> = g;
+<a name="l00115"></a>00115         }
+<a name="l00116"></a>00116 
+<a name="l00122"></a><a class="code" href="class_virtual___keyboard_1_1_keyboard___manager.html#a28535fdd10cc561e5dedf3c14b443e5a">00122</a>         <span class="keyword">public</span> <span class="keywordtype">void</span> <a class="code" href="class_virtual___keyboard_1_1_keyboard___manager.html#a28535fdd10cc561e5dedf3c14b443e5a">Set_Sens_Normal</a>()
+<a name="l00123"></a>00123         {
+<a name="l00124"></a>00124             _Sens_Deplacement = -1;
+<a name="l00125"></a>00125         }
+<a name="l00131"></a><a class="code" href="class_virtual___keyboard_1_1_keyboard___manager.html#a7e643bb3d8d174596639b0703bd1c554">00131</a>         <span class="keyword">public</span> <span class="keywordtype">void</span> <a class="code" href="class_virtual___keyboard_1_1_keyboard___manager.html#a7e643bb3d8d174596639b0703bd1c554">Set_Sens_Inverse</a>()
+<a name="l00132"></a>00132         {
+<a name="l00133"></a>00133             _Sens_Deplacement = 1;
+<a name="l00134"></a>00134         }
+<a name="l00135"></a>00135 
+<a name="l00141"></a><a class="code" href="class_virtual___keyboard_1_1_keyboard___manager.html#a7a59afe4a66d90da368debec4b031071">00141</a>         <span class="keyword">public</span> <span class="keywordtype">void</span> <a class="code" href="class_virtual___keyboard_1_1_keyboard___manager.html#a7a59afe4a66d90da368debec4b031071">Set_Zoom_Static</a>()
+<a name="l00142"></a>00142         {
+<a name="l00143"></a>00143             _Zoom = <span class="keyword">new</span> <a class="code" href="class_virtual___keyboard_1_1_zoom___static.html">Zoom_Static</a>();
+<a name="l00144"></a>00144         }
+<a name="l00150"></a><a class="code" href="class_virtual___keyboard_1_1_keyboard___manager.html#abb7badd10f6f9dd85c44ef81b70d3aa5">00150</a>         <span class="keyword">public</span> <span class="keywordtype">void</span> <a class="code" href="class_virtual___keyboard_1_1_keyboard___manager.html#abb7badd10f6f9dd85c44ef81b70d3aa5">Set_Zoom_Din</a>()
+<a name="l00151"></a>00151         {
+<a name="l00152"></a>00152             _Zoom = <span class="keyword">new</span> <a class="code" href="class_virtual___keyboard_1_1_zoom___dynamique.html">Zoom_Dynamique</a>(<span class="keyword">this</span>);
+<a name="l00153"></a>00153         
+<a name="l00154"></a>00154         }
+<a name="l00155"></a>00155 
+<a name="l00161"></a><a class="code" href="class_virtual___keyboard_1_1_keyboard___manager.html#a5cb86dfaeecf708c51fcb77fa48f7262">00161</a>         <span class="keyword">public</span> <span class="keywordtype">void</span> <a class="code" href="class_virtual___keyboard_1_1_keyboard___manager.html#a5cb86dfaeecf708c51fcb77fa48f7262">Update_Form</a>()
+<a name="l00162"></a>00162         {
+<a name="l00163"></a>00163             _Formulaire.Update_Satus();
+<a name="l00164"></a>00164             _Formulaire.Pannel_Paint();
+<a name="l00165"></a>00165         }
+<a name="l00166"></a>00166 
+<a name="l00174"></a><a class="code" href="class_virtual___keyboard_1_1_keyboard___manager.html#ac6bb0406be096c07ea2d4eca4a474ce4">00174</a>         <span class="keyword">public</span> <span class="keywordtype">void</span> <a class="code" href="class_virtual___keyboard_1_1_keyboard___manager.html#ac6bb0406be096c07ea2d4eca4a474ce4">OnMouseWheel</a>(<span class="keywordtype">object</span> sender, MouseEventArgs e)
+<a name="l00175"></a>00175         {
+<a name="l00176"></a>00176             <span class="keywordflow">if</span> (e.Delta &gt; 0)
+<a name="l00177"></a>00177             {
+<a name="l00178"></a>00178                 _Zoom.<a class="code" href="class_virtual___keyboard_1_1_zoom.html#a8ef13aecdecc437a62fdde8f0338a1db">Increment</a>();
+<a name="l00179"></a>00179             }
+<a name="l00180"></a>00180             <span class="keywordflow">else</span> <span class="keywordflow">if</span> (e.Delta &lt; 0)
+<a name="l00181"></a>00181             {
+<a name="l00182"></a>00182                 _Zoom.<a class="code" href="class_virtual___keyboard_1_1_zoom.html#af356d1481d454a040e285070ff086dec">Decrement</a>();
+<a name="l00183"></a>00183             }
+<a name="l00184"></a>00184            _Clavier.<a class="code" href="class_virtual___keyboard_1_1_keyboard.html#a615fc84d7d1be9929d7cff3a08bd7fa8">Largeur_Touche</a> = (int)(_Clavier.<a class="code" href="class_virtual___keyboard_1_1_keyboard.html#a581dc56fc727e4c95b994694ab80d6ee">Largeur_Origin</a> * _Zoom.<a class="code" href="class_virtual___keyboard_1_1_zoom.html#ae36dc326bd9c6a3780184313b3d094bf">Zoom_Value</a>);
+<a name="l00185"></a>00185             _Clavier.<a class="code" href="class_virtual___keyboard_1_1_keyboard.html#a1a0be26415f1dec517cbb5b2fef2c87e">Mise_a_jour_Clavier</a>();
+<a name="l00186"></a>00186             <a class="code" href="class_virtual___keyboard_1_1_keyboard___manager.html#a5cb86dfaeecf708c51fcb77fa48f7262">Update_Form</a>();
+<a name="l00187"></a>00187         }
+<a name="l00188"></a>00188 
+<a name="l00196"></a><a class="code" href="class_virtual___keyboard_1_1_keyboard___manager.html#a2f140a1cd9404321b0fdeed87a32980f">00196</a>         <span class="keyword">public</span> <span class="keywordtype">void</span> <a class="code" href="class_virtual___keyboard_1_1_keyboard___manager.html#a2f140a1cd9404321b0fdeed87a32980f">OnMouseClick</a>(<span class="keywordtype">object</span> sender, MouseEventArgs e)
+<a name="l00197"></a>00197         {
+<a name="l00198"></a>00198             <span class="keywordflow">if</span> (_Deplacement &amp; _Zoom.<a class="code" href="class_virtual___keyboard_1_1_zoom.html#ae36dc326bd9c6a3780184313b3d094bf">Zoom_Value</a> &gt;= _Zoom.<a class="code" href="class_virtual___keyboard_1_1_zoom.html#a5b66bf4d76c91a794071c256337f35ad">Zoom_Valide</a>)
+<a name="l00199"></a>00199             {
+<a name="l00200"></a>00200                 <a class="code" href="class_virtual___keyboard_1_1_touche.html">Touche</a> t = _Clavier.<a class="code" href="class_virtual___keyboard_1_1_keyboard.html#aa1ba94923486b50381ab59023e5f5e25">Valide</a>(Point_a_Valider());
+<a name="l00201"></a>00201                 <span class="keywordflow">if</span> (t != null)
+<a name="l00202"></a>00202                 {
+<a name="l00203"></a>00203                     t.<a class="code" href="class_virtual___keyboard_1_1_touche.html#a3a283f99719b3d41369d346271280aa7">Valide</a>(_Formulaire.Textbox);
+<a name="l00204"></a>00204                 }
+<a name="l00205"></a>00205             }
+<a name="l00206"></a>00206 
+<a name="l00207"></a>00207             _Deplacement = !_Deplacement;
+<a name="l00208"></a>00208             _Clavier.<a class="code" href="class_virtual___keyboard_1_1_keyboard.html#af9cfdbfaf7f5a4d6e17d66851bb6334a">Pos_Origin</a> = _Clavier.<a class="code" href="class_virtual___keyboard_1_1_keyboard.html#ad1021d3acbb4358b547e807a950ebda4">Pos</a>;
+<a name="l00209"></a>00209             _Mouse_X = e.X;
+<a name="l00210"></a>00210             _Mouse_Y = e.Y;
+<a name="l00211"></a>00211             _Formulaire.Update_Satus();
+<a name="l00212"></a>00212         }
+<a name="l00220"></a><a class="code" href="class_virtual___keyboard_1_1_keyboard___manager.html#a25b0c4809a8eeaa5fcc97b247d1b431e">00220</a>         <span class="keyword">public</span> <span class="keywordtype">void</span> <a class="code" href="class_virtual___keyboard_1_1_keyboard___manager.html#a25b0c4809a8eeaa5fcc97b247d1b431e">OnMouseMouve</a>(<span class="keywordtype">object</span> sender, MouseEventArgs e)
+<a name="l00221"></a>00221         {
+<a name="l00222"></a>00222             _Deplacement_X = (int)((_Mouse_X - e.Location.X) * _Sens_Deplacement);
+<a name="l00223"></a>00223             _Deplacement_Y = (int)((_Mouse_Y - e.Location.Y) * _Sens_Deplacement);
+<a name="l00224"></a>00224             <span class="keywordflow">if</span> (_Deplacement)
+<a name="l00225"></a>00225             {
+<a name="l00226"></a>00226                 _Clavier.<a class="code" href="class_virtual___keyboard_1_1_keyboard.html#ad1021d3acbb4358b547e807a950ebda4">Pos</a> = <span class="keyword">new</span> Point((<span class="keywordtype">int</span>)(_Clavier.<a class="code" href="class_virtual___keyboard_1_1_keyboard.html#af9cfdbfaf7f5a4d6e17d66851bb6334a">Pos_Origin</a>.X + _Deplacement_X), (<span class="keywordtype">int</span>)(_Clavier.<a class="code" href="class_virtual___keyboard_1_1_keyboard.html#af9cfdbfaf7f5a4d6e17d66851bb6334a">Pos_Origin</a>.Y + _Deplacement_Y));
+<a name="l00227"></a>00227                 _Clavier.<a class="code" href="class_virtual___keyboard_1_1_keyboard.html#a1a0be26415f1dec517cbb5b2fef2c87e">Mise_a_jour_Clavier</a>();
+<a name="l00228"></a>00228                 _Clavier.<a class="code" href="class_virtual___keyboard_1_1_keyboard.html#aa1ba94923486b50381ab59023e5f5e25">Valide</a>(Point_a_Valider());
+<a name="l00229"></a>00229                 <a class="code" href="class_virtual___keyboard_1_1_keyboard___manager.html#a5cb86dfaeecf708c51fcb77fa48f7262">Update_Form</a>();
+<a name="l00230"></a>00230             }
+<a name="l00231"></a>00231         }
+<a name="l00237"></a>00237         <span class="keyword">private</span> Point Point_a_Valider()
+<a name="l00238"></a>00238         {
+<a name="l00239"></a>00239             <span class="keywordflow">return</span> _Formulaire._Centre;
+<a name="l00240"></a>00240         }
+<a name="l00241"></a>00241     }
+<a name="l00242"></a>00242 }
+</pre></div></div><!-- contents -->
+</div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Espaces de nommage</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Fichiers</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Fonctions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Propriétés</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="_c_lavier___manager_8cs.html">CLavier_Manager.cs</a>      </li>
+
+    <li class="footer">Généré le Lundi Janvier 16 2012 11:38:28 pour Projet M1 par
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.6.1 </li>
+   </ul>
+ </div>
+
+
+</body>
+</html>

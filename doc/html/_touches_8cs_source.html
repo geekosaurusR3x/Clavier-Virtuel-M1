@@ -1,0 +1,243 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<title>Projet M1:  Fichier source de Touches.cs</title>
+
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+
+</head>
+<body>
+<div id="top"><!-- do not remove this div! -->
+
+
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  
+  
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Projet M1
+   
+   </div>
+   <div id="projectbrief">Clavier Virtuel en C#</div>
+  </td>
+  
+  
+  
+ </tr>
+ </tbody>
+</table>
+</div>
+
+<!-- Généré par Doxygen 1.7.6.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Page&#160;principale</span></a></li>
+      <li><a href="namespaces.html"><span>Paquetages</span></a></li>
+      <li><a href="annotated.html"><span>Classes</span></a></li>
+      <li class="current"><a href="files.html"><span>Fichiers</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Liste&#160;des&#160;fichiers</span></a></li>
+    </ul>
+  </div>
+</div>
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+  initNavTree('_touches_8cs.html','');
+</script>
+<div id="doc-content">
+<div class="header">
+  <div class="headertitle">
+<div class="title">Touches.cs</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="_touches_8cs.html">Aller à la documentation de ce fichier.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 ﻿using System;
+<a name="l00002"></a>00002 <span class="keyword">using</span> System.Drawing;
+<a name="l00003"></a>00003 <span class="keyword">using</span> System.Collections.Generic;
+<a name="l00004"></a>00004 <span class="keyword">using</span> System.Windows.Forms;
+<a name="l00005"></a>00005 
+<a name="l00006"></a>00006 <span class="keyword">namespace </span>Virtual_Keyboard
+<a name="l00007"></a>00007 {
+<a name="l00009"></a><a class="code" href="class_virtual___keyboard_1_1_touche.html">00009</a>     <span class="keyword">class </span><a class="code" href="class_virtual___keyboard_1_1_touche.html">Touche</a>
+<a name="l00010"></a>00010     {
+<a name="l00011"></a>00011 <span class="preprocessor">        #region datas</span>
+<a name="l00012"></a><a class="code" href="class_virtual___keyboard_1_1_touche.html#afd0488d4c70a216b6af69d8c141bc9bf">00012</a> <span class="preprocessor"></span>        <span class="keyword">protected</span> <span class="keywordtype">string</span> <a class="code" href="class_virtual___keyboard_1_1_touche.html#afd0488d4c70a216b6af69d8c141bc9bf">_Lettre</a> ;
+<a name="l00013"></a><a class="code" href="class_virtual___keyboard_1_1_touche.html#a146e895a9295cd2b03056a466308366b">00013</a>         <span class="keyword">protected</span> <span class="keywordtype">string</span> <a class="code" href="class_virtual___keyboard_1_1_touche.html#a146e895a9295cd2b03056a466308366b">_Label</a>;
+<a name="l00014"></a><a class="code" href="class_virtual___keyboard_1_1_touche.html#a025b3bb9649dd051636f28e1be9a48ef">00014</a>         <span class="keyword">protected</span> Point <a class="code" href="class_virtual___keyboard_1_1_touche.html#a025b3bb9649dd051636f28e1be9a48ef">_Position</a> ;
+<a name="l00015"></a><a class="code" href="class_virtual___keyboard_1_1_touche.html#a6f8e8e36aecb82ae5b1c5c648264f68f">00015</a>         <span class="keyword">protected</span> <span class="keywordtype">int</span> <a class="code" href="class_virtual___keyboard_1_1_touche.html#a6f8e8e36aecb82ae5b1c5c648264f68f">_Largeur</a> ;
+<a name="l00016"></a><a class="code" href="class_virtual___keyboard_1_1_touche.html#a818149b8b969caf388fc8609092d6406">00016</a>         <span class="keyword">protected</span> <span class="keywordtype">int</span> <a class="code" href="class_virtual___keyboard_1_1_touche.html#a818149b8b969caf388fc8609092d6406">_Largeur_origin</a>;
+<a name="l00017"></a><a class="code" href="class_virtual___keyboard_1_1_touche.html#ae1f90b80ef5d20da701f70a9230bcdef">00017</a>         <span class="keyword">protected</span> Point[] <a class="code" href="class_virtual___keyboard_1_1_touche.html#ae1f90b80ef5d20da701f70a9230bcdef">_TabPoint</a>;
+<a name="l00018"></a><a class="code" href="class_virtual___keyboard_1_1_touche.html#a1f307c577be53a0ab8f5aa1009e230ed">00018</a>         <span class="keyword">protected</span> Color <a class="code" href="class_virtual___keyboard_1_1_touche.html#a1f307c577be53a0ab8f5aa1009e230ed">_Color</a>;
+<a name="l00019"></a><a class="code" href="class_virtual___keyboard_1_1_touche.html#a59cec202c73874fc4907def5ab99b026">00019</a>         <span class="keyword">protected</span> Color <a class="code" href="class_virtual___keyboard_1_1_touche.html#a59cec202c73874fc4907def5ab99b026">_Origin_Color</a>;
+<a name="l00020"></a>00020 <span class="preprocessor">        #endregion</span>
+<a name="l00021"></a>00021 <span class="preprocessor"></span>
+<a name="l00022"></a>00022 <span class="preprocessor">        #region constructeur</span>
+<a name="l00023"></a>00023 <span class="preprocessor"></span>
+<a name="l00032"></a><a class="code" href="class_virtual___keyboard_1_1_touche.html#a6e912ff45a8bed975c167ebc48ac4e12">00032</a>         <span class="keyword">public</span> <a class="code" href="class_virtual___keyboard_1_1_touche.html#a6e912ff45a8bed975c167ebc48ac4e12">Touche</a>(<span class="keywordtype">string</span> lettre,<span class="keywordtype">string</span> label, Point p, <span class="keywordtype">int</span> largeur)
+<a name="l00033"></a>00033         {
+<a name="l00034"></a>00034             <a class="code" href="class_virtual___keyboard_1_1_touche.html#afd0488d4c70a216b6af69d8c141bc9bf">_Lettre</a> = lettre;
+<a name="l00035"></a>00035             <a class="code" href="class_virtual___keyboard_1_1_touche.html#a146e895a9295cd2b03056a466308366b">_Label</a> = label;
+<a name="l00036"></a>00036             <a class="code" href="class_virtual___keyboard_1_1_touche.html#a025b3bb9649dd051636f28e1be9a48ef">_Position</a> = p;
+<a name="l00037"></a>00037             <a class="code" href="class_virtual___keyboard_1_1_touche.html#a6f8e8e36aecb82ae5b1c5c648264f68f">_Largeur</a> = largeur;
+<a name="l00038"></a>00038             <a class="code" href="class_virtual___keyboard_1_1_touche.html#ae1f90b80ef5d20da701f70a9230bcdef">_TabPoint</a> = <span class="keyword">new</span> Point[7];
+<a name="l00039"></a>00039             <a class="code" href="class_virtual___keyboard_1_1_touche.html#a120221cc475e691827309884d9be1f87">set_position</a>(<a class="code" href="class_virtual___keyboard_1_1_touche.html#a025b3bb9649dd051636f28e1be9a48ef">_Position</a>);
+<a name="l00040"></a>00040             <a class="code" href="class_virtual___keyboard_1_1_touche.html#a59cec202c73874fc4907def5ab99b026">_Origin_Color</a> = <a class="code" href="class_virtual___keyboard_1_1_touche.html#a1f307c577be53a0ab8f5aa1009e230ed">_Color</a> = Color.WhiteSmoke;
+<a name="l00041"></a>00041 
+<a name="l00042"></a>00042         }
+<a name="l00043"></a>00043 <span class="preprocessor">        #endregion</span>
+<a name="l00044"></a>00044 <span class="preprocessor"></span>
+<a name="l00045"></a>00045 <span class="preprocessor">        #region get/set</span>
+<a name="l00046"></a>00046 <span class="preprocessor"></span>        <span class="keyword">public</span> <span class="keywordtype">string</span> <a class="code" href="class_virtual___keyboard_1_1_touche.html#a51a5642fae35bc09798a01dbf08a601d">Lettre</a>
+<a name="l00047"></a><a class="code" href="class_virtual___keyboard_1_1_touche.html#a51a5642fae35bc09798a01dbf08a601d">00047</a>         {
+<a name="l00048"></a>00048             <span class="keyword">get</span> { <span class="keywordflow">return</span> <a class="code" href="class_virtual___keyboard_1_1_touche.html#afd0488d4c70a216b6af69d8c141bc9bf">_Lettre</a>; }
+<a name="l00049"></a>00049         }
+<a name="l00050"></a>00050         <span class="keyword">public</span> <span class="keywordtype">int</span> <a class="code" href="class_virtual___keyboard_1_1_touche.html#a2e256369f78d495e40a2baba8911f54b">Largeur</a>
+<a name="l00051"></a><a class="code" href="class_virtual___keyboard_1_1_touche.html#a2e256369f78d495e40a2baba8911f54b">00051</a>         {
+<a name="l00052"></a>00052             <span class="keyword">set</span> { <a class="code" href="class_virtual___keyboard_1_1_touche.html#a6f8e8e36aecb82ae5b1c5c648264f68f">_Largeur</a> = value; }
+<a name="l00053"></a>00053         }
+<a name="l00054"></a>00054 <span class="preprocessor">        #endregion</span>
+<a name="l00055"></a>00055 <span class="preprocessor"></span>
+<a name="l00056"></a>00056 <span class="preprocessor">        #region methodes</span>
+<a name="l00057"></a>00057 <span class="preprocessor"></span>
+<a name="l00063"></a><a class="code" href="class_virtual___keyboard_1_1_touche.html#a120221cc475e691827309884d9be1f87">00063</a>         <span class="keyword">public</span> <span class="keywordtype">void</span> <a class="code" href="class_virtual___keyboard_1_1_touche.html#a120221cc475e691827309884d9be1f87">set_position</a>(Point p)
+<a name="l00064"></a>00064         {
+<a name="l00065"></a>00065             <a class="code" href="class_virtual___keyboard_1_1_touche.html#a025b3bb9649dd051636f28e1be9a48ef">_Position</a> = p;
+<a name="l00066"></a>00066             <a class="code" href="class_virtual___keyboard_1_1_touche.html#ae1f90b80ef5d20da701f70a9230bcdef">_TabPoint</a>[0] = <span class="keyword">new</span> Point(p.X - <a class="code" href="class_virtual___keyboard_1_1_touche.html#a6f8e8e36aecb82ae5b1c5c648264f68f">_Largeur</a>, p.Y - (<a class="code" href="class_virtual___keyboard_1_1_touche.html#a6f8e8e36aecb82ae5b1c5c648264f68f">_Largeur</a> / 2));
+<a name="l00067"></a>00067             <a class="code" href="class_virtual___keyboard_1_1_touche.html#ae1f90b80ef5d20da701f70a9230bcdef">_TabPoint</a>[1] = <span class="keyword">new</span> Point(p.X, p.Y - <a class="code" href="class_virtual___keyboard_1_1_touche.html#a6f8e8e36aecb82ae5b1c5c648264f68f">_Largeur</a>);
+<a name="l00068"></a>00068             <a class="code" href="class_virtual___keyboard_1_1_touche.html#ae1f90b80ef5d20da701f70a9230bcdef">_TabPoint</a>[2] = <span class="keyword">new</span> Point(p.X + <a class="code" href="class_virtual___keyboard_1_1_touche.html#a6f8e8e36aecb82ae5b1c5c648264f68f">_Largeur</a>, p.Y - (<a class="code" href="class_virtual___keyboard_1_1_touche.html#a6f8e8e36aecb82ae5b1c5c648264f68f">_Largeur</a> / 2));
+<a name="l00069"></a>00069             <a class="code" href="class_virtual___keyboard_1_1_touche.html#ae1f90b80ef5d20da701f70a9230bcdef">_TabPoint</a>[3] = <span class="keyword">new</span> Point(p.X + <a class="code" href="class_virtual___keyboard_1_1_touche.html#a6f8e8e36aecb82ae5b1c5c648264f68f">_Largeur</a>, p.Y + (<a class="code" href="class_virtual___keyboard_1_1_touche.html#a6f8e8e36aecb82ae5b1c5c648264f68f">_Largeur</a> / 2));
+<a name="l00070"></a>00070             <a class="code" href="class_virtual___keyboard_1_1_touche.html#ae1f90b80ef5d20da701f70a9230bcdef">_TabPoint</a>[4] = <span class="keyword">new</span> Point(p.X, p.Y + <a class="code" href="class_virtual___keyboard_1_1_touche.html#a6f8e8e36aecb82ae5b1c5c648264f68f">_Largeur</a>);
+<a name="l00071"></a>00071             <a class="code" href="class_virtual___keyboard_1_1_touche.html#ae1f90b80ef5d20da701f70a9230bcdef">_TabPoint</a>[5] = <span class="keyword">new</span> Point(p.X - <a class="code" href="class_virtual___keyboard_1_1_touche.html#a6f8e8e36aecb82ae5b1c5c648264f68f">_Largeur</a>, p.Y + (<a class="code" href="class_virtual___keyboard_1_1_touche.html#a6f8e8e36aecb82ae5b1c5c648264f68f">_Largeur</a> / 2));
+<a name="l00072"></a>00072             <a class="code" href="class_virtual___keyboard_1_1_touche.html#ae1f90b80ef5d20da701f70a9230bcdef">_TabPoint</a>[6] = <span class="keyword">new</span> Point(p.X - <a class="code" href="class_virtual___keyboard_1_1_touche.html#a6f8e8e36aecb82ae5b1c5c648264f68f">_Largeur</a>, p.Y - (<a class="code" href="class_virtual___keyboard_1_1_touche.html#a6f8e8e36aecb82ae5b1c5c648264f68f">_Largeur</a> / 2));
+<a name="l00073"></a>00073         }
+<a name="l00079"></a><a class="code" href="class_virtual___keyboard_1_1_touche.html#a321c663f62ddb5a8f15bc419f18fc9ef">00079</a>         <span class="keyword">public</span> <span class="keywordtype">void</span> <a class="code" href="class_virtual___keyboard_1_1_touche.html#a321c663f62ddb5a8f15bc419f18fc9ef">Dessin</a>(Graphics graf)
+<a name="l00080"></a>00080         {
+<a name="l00081"></a>00081             graf.FillPolygon(<span class="keyword">new</span> SolidBrush(<a class="code" href="class_virtual___keyboard_1_1_touche.html#a1f307c577be53a0ab8f5aa1009e230ed">_Color</a>), <a class="code" href="class_virtual___keyboard_1_1_touche.html#ae1f90b80ef5d20da701f70a9230bcdef">_TabPoint</a>);
+<a name="l00082"></a>00082             graf.DrawLines(<span class="keyword">new</span> Pen(Color.Black), <a class="code" href="class_virtual___keyboard_1_1_touche.html#ae1f90b80ef5d20da701f70a9230bcdef">_TabPoint</a>);
+<a name="l00083"></a>00083             <span class="keywordtype">int</span> taille = 20;
+<a name="l00084"></a>00084             Font font = <span class="keyword">new</span> Font(<span class="stringliteral">&quot;Verdana&quot;</span>, taille);
+<a name="l00085"></a>00085             Size textSize = TextRenderer.MeasureText(<a class="code" href="class_virtual___keyboard_1_1_touche.html#a146e895a9295cd2b03056a466308366b">_Label</a>, font);
+<a name="l00086"></a>00086             <span class="keywordflow">while</span> (textSize.Width &gt; <a class="code" href="class_virtual___keyboard_1_1_touche.html#a6f8e8e36aecb82ae5b1c5c648264f68f">_Largeur</a>)
+<a name="l00087"></a>00087             {
+<a name="l00088"></a>00088                 taille--;
+<a name="l00089"></a>00089                 font = <span class="keyword">new</span> Font(<span class="stringliteral">&quot;Verdana&quot;</span>, taille);
+<a name="l00090"></a>00090                 textSize = TextRenderer.MeasureText(<a class="code" href="class_virtual___keyboard_1_1_touche.html#a146e895a9295cd2b03056a466308366b">_Label</a>, font);
+<a name="l00091"></a>00091             }
+<a name="l00092"></a>00092             graf.DrawString(<a class="code" href="class_virtual___keyboard_1_1_touche.html#a146e895a9295cd2b03056a466308366b">_Label</a>, font, <span class="keyword">new</span> SolidBrush(<a class="code" href="class_virtual___keyboard_1_1_utilitaire.html">Utilitaire</a>.<a class="code" href="class_virtual___keyboard_1_1_utilitaire.html#a254af4c0714237ae5a13fa27898e56ec">InColor</a>(<a class="code" href="class_virtual___keyboard_1_1_touche.html#a1f307c577be53a0ab8f5aa1009e230ed">_Color</a>)), <span class="keyword">new</span> Point(<a class="code" href="class_virtual___keyboard_1_1_touche.html#a025b3bb9649dd051636f28e1be9a48ef">_Position</a>.X - textSize.Width / 2, <a class="code" href="class_virtual___keyboard_1_1_touche.html#a025b3bb9649dd051636f28e1be9a48ef">_Position</a>.Y - textSize.Height/2));
+<a name="l00093"></a>00093         }
+<a name="l00094"></a>00094 
+<a name="l00100"></a><a class="code" href="class_virtual___keyboard_1_1_touche.html#ae9e4027d27e89df9f1764832348b8f11">00100</a>         <span class="keyword">public</span> <span class="keywordtype">bool</span> <a class="code" href="class_virtual___keyboard_1_1_touche.html#ae9e4027d27e89df9f1764832348b8f11">Is_in</a>(Point pos)
+<a name="l00101"></a>00101         {
+<a name="l00102"></a>00102             <span class="keywordtype">double</span> a, b, c, dpos,dori;
+<a name="l00103"></a>00103             <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt;= 5; i++)
+<a name="l00104"></a>00104             {
+<a name="l00105"></a>00105                 a = <a class="code" href="class_virtual___keyboard_1_1_touche.html#ae1f90b80ef5d20da701f70a9230bcdef">_TabPoint</a>[i + 1].Y - <a class="code" href="class_virtual___keyboard_1_1_touche.html#ae1f90b80ef5d20da701f70a9230bcdef">_TabPoint</a>[i].Y;
+<a name="l00106"></a>00106                 b = <a class="code" href="class_virtual___keyboard_1_1_touche.html#ae1f90b80ef5d20da701f70a9230bcdef">_TabPoint</a>[i].X - <a class="code" href="class_virtual___keyboard_1_1_touche.html#ae1f90b80ef5d20da701f70a9230bcdef">_TabPoint</a>[i + 1].X;
+<a name="l00107"></a>00107                 c = (<a class="code" href="class_virtual___keyboard_1_1_touche.html#ae1f90b80ef5d20da701f70a9230bcdef">_TabPoint</a>[i + 1].X * <a class="code" href="class_virtual___keyboard_1_1_touche.html#ae1f90b80ef5d20da701f70a9230bcdef">_TabPoint</a>[i].Y) - (<a class="code" href="class_virtual___keyboard_1_1_touche.html#ae1f90b80ef5d20da701f70a9230bcdef">_TabPoint</a>[i].X * <a class="code" href="class_virtual___keyboard_1_1_touche.html#ae1f90b80ef5d20da701f70a9230bcdef">_TabPoint</a>[i + 1].Y);
+<a name="l00108"></a>00108                 dori = <a class="code" href="class_virtual___keyboard_1_1_utilitaire.html">Utilitaire</a>.<a class="code" href="class_virtual___keyboard_1_1_utilitaire.html#aa6d4814cd2111217af5d61b306f85a4f">Dist</a>(a, b, c, <a class="code" href="class_virtual___keyboard_1_1_touche.html#a025b3bb9649dd051636f28e1be9a48ef">_Position</a>);
+<a name="l00109"></a>00109                 dpos = <a class="code" href="class_virtual___keyboard_1_1_utilitaire.html">Utilitaire</a>.<a class="code" href="class_virtual___keyboard_1_1_utilitaire.html#aa6d4814cd2111217af5d61b306f85a4f">Dist</a>(a, b, c, pos);
+<a name="l00110"></a>00110                 <span class="keywordflow">if</span> ((dori &gt; 0 &amp; dpos &gt; 0) ^ (dori &lt; 0 &amp; dpos &lt; 0))
+<a name="l00111"></a>00111                 {}
+<a name="l00112"></a>00112                 <span class="keywordflow">else</span>
+<a name="l00113"></a>00113                 {
+<a name="l00114"></a>00114                     <span class="keywordflow">return</span> <span class="keyword">false</span>;
+<a name="l00115"></a>00115                 }
+<a name="l00116"></a>00116                  
+<a name="l00117"></a>00117             }
+<a name="l00118"></a>00118 
+<a name="l00119"></a>00119             <span class="keywordflow">return</span> <span class="keyword">true</span>;
+<a name="l00120"></a>00120         }
+<a name="l00121"></a>00121 
+<a name="l00122"></a><a class="code" href="class_virtual___keyboard_1_1_touche.html#a25aa5c0e7a8e72af9446cf94a90e8269">00122</a>         <span class="keyword">public</span> <span class="keywordtype">void</span> <a class="code" href="class_virtual___keyboard_1_1_touche.html#a25aa5c0e7a8e72af9446cf94a90e8269">Inverse_Color</a>()
+<a name="l00123"></a>00123         {
+<a name="l00124"></a>00124             <a class="code" href="class_virtual___keyboard_1_1_touche.html#a1f307c577be53a0ab8f5aa1009e230ed">_Color</a> = <a class="code" href="class_virtual___keyboard_1_1_utilitaire.html">Utilitaire</a>.<a class="code" href="class_virtual___keyboard_1_1_utilitaire.html#a254af4c0714237ae5a13fa27898e56ec">InColor</a>(<a class="code" href="class_virtual___keyboard_1_1_touche.html#a1f307c577be53a0ab8f5aa1009e230ed">_Color</a>);
+<a name="l00125"></a>00125         }
+<a name="l00126"></a>00126 
+<a name="l00127"></a><a class="code" href="class_virtual___keyboard_1_1_touche.html#a8c2e33d05568bacc6bf310b9d8e25536">00127</a>         <span class="keyword">public</span> <span class="keywordtype">void</span> <a class="code" href="class_virtual___keyboard_1_1_touche.html#a8c2e33d05568bacc6bf310b9d8e25536">Color_Back_To_Origin</a>()
+<a name="l00128"></a>00128         {
+<a name="l00129"></a>00129             <a class="code" href="class_virtual___keyboard_1_1_touche.html#a1f307c577be53a0ab8f5aa1009e230ed">_Color</a> = <a class="code" href="class_virtual___keyboard_1_1_touche.html#a59cec202c73874fc4907def5ab99b026">_Origin_Color</a>;
+<a name="l00130"></a>00130         }
+<a name="l00131"></a>00131 
+<a name="l00132"></a><a class="code" href="class_virtual___keyboard_1_1_touche.html#a3a283f99719b3d41369d346271280aa7">00132</a>         <span class="keyword">public</span> <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_virtual___keyboard_1_1_touche.html#a3a283f99719b3d41369d346271280aa7">Valide</a>(System.Windows.Forms.TextBox textbox)
+<a name="l00133"></a>00133         {
+<a name="l00134"></a>00134             textbox.AppendText(<a class="code" href="class_virtual___keyboard_1_1_touche.html#afd0488d4c70a216b6af69d8c141bc9bf">_Lettre</a>);
+<a name="l00135"></a>00135         }
+<a name="l00136"></a>00136 <span class="preprocessor">        #endregion</span>
+<a name="l00137"></a>00137 <span class="preprocessor"></span>
+<a name="l00138"></a>00138     }
+<a name="l00139"></a>00139 }
+</pre></div></div><!-- contents -->
+</div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Espaces de nommage</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Fichiers</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Fonctions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Propriétés</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="_touches_8cs.html">Touches.cs</a>      </li>
+
+    <li class="footer">Généré le Lundi Janvier 16 2012 11:38:28 pour Projet M1 par
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.6.1 </li>
+   </ul>
+ </div>
+
+
+</body>
+</html>

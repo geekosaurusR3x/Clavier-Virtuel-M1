@@ -1,0 +1,310 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<title>Projet M1:  Fichier source de Clavier.cs</title>
+
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+
+</head>
+<body>
+<div id="top"><!-- do not remove this div! -->
+
+
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  
+  
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Projet M1
+   
+   </div>
+   <div id="projectbrief">Clavier Virtuel en C#</div>
+  </td>
+  
+  
+  
+ </tr>
+ </tbody>
+</table>
+</div>
+
+<!-- Généré par Doxygen 1.7.6.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Page&#160;principale</span></a></li>
+      <li><a href="namespaces.html"><span>Paquetages</span></a></li>
+      <li><a href="annotated.html"><span>Classes</span></a></li>
+      <li class="current"><a href="files.html"><span>Fichiers</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Liste&#160;des&#160;fichiers</span></a></li>
+    </ul>
+  </div>
+</div>
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+  initNavTree('_clavier_8cs.html','');
+</script>
+<div id="doc-content">
+<div class="header">
+  <div class="headertitle">
+<div class="title">Clavier.cs</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="_clavier_8cs.html">Aller à la documentation de ce fichier.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 ﻿using System;
+<a name="l00002"></a>00002 <span class="keyword">using</span> System.Xml;
+<a name="l00003"></a>00003 <span class="keyword">using</span> System.Collections.Generic;
+<a name="l00004"></a>00004 <span class="keyword">using</span> System.IO;
+<a name="l00005"></a>00005 <span class="keyword">using</span> System.Drawing;
+<a name="l00006"></a>00006 
+<a name="l00017"></a>00017 <span class="keyword">namespace </span>Virtual_Keyboard
+<a name="l00018"></a>00018 {
+<a name="l00023"></a><a class="code" href="class_virtual___keyboard_1_1_keyboard.html">00023</a>     <span class="keyword">class </span><a class="code" href="class_virtual___keyboard_1_1_keyboard.html">Keyboard</a>
+<a name="l00024"></a>00024     {
+<a name="l00025"></a>00025 
+<a name="l00026"></a>00026 <span class="preprocessor">        #region data</span>
+<a name="l00027"></a>00027 <span class="preprocessor"></span>        <span class="keyword">private</span> <span class="keywordtype">int</span> _Nb_touches; 
+<a name="l00028"></a>00028         <span class="keyword">private</span> <span class="keywordtype">int</span> _Nb_lignes;
+<a name="l00029"></a>00029         <span class="keyword">private</span> <span class="keywordtype">int</span> _Nb_colones;
+<a name="l00030"></a>00030         <span class="keyword">private</span> List&lt;Touche&gt; _Touches; 
+<a name="l00031"></a>00031         <span class="keyword">private</span> <span class="keywordtype">int</span> _Largeur_touche, _Largeur_origin;
+<a name="l00032"></a>00032         <span class="keyword">private</span> Point _Pos;
+<a name="l00033"></a>00033         <span class="keyword">private</span> Point _Pos_Origin;
+<a name="l00034"></a>00034 <span class="preprocessor">        #endregion</span>
+<a name="l00035"></a>00035 <span class="preprocessor"></span>
+<a name="l00036"></a>00036 <span class="preprocessor">        #region constructeur</span>
+<a name="l00037"></a>00037 <span class="preprocessor"></span>
+<a name="l00043"></a><a class="code" href="class_virtual___keyboard_1_1_keyboard.html#af24aa2f78d0c04ad7412569b06156e6d">00043</a>         <span class="keyword">public</span> <a class="code" href="class_virtual___keyboard_1_1_keyboard.html#af24aa2f78d0c04ad7412569b06156e6d">Keyboard</a>()
+<a name="l00044"></a>00044         {
+<a name="l00045"></a>00045             _Touches = <span class="keyword">new</span> List&lt;Touche&gt;();
+<a name="l00046"></a>00046             _Nb_touches = 0;
+<a name="l00047"></a>00047             _Largeur_origin = _Largeur_touche = 50;
+<a name="l00048"></a>00048             _Pos_Origin = _Pos = <span class="keyword">new</span> Point(50, 50);
+<a name="l00049"></a>00049         }
+<a name="l00050"></a>00050 <span class="preprocessor">        #endregion</span>
+<a name="l00051"></a>00051 <span class="preprocessor"></span>
+<a name="l00052"></a>00052 <span class="preprocessor">        #region get/set</span>
+<a name="l00053"></a>00053 <span class="preprocessor"></span>
+<a name="l00056"></a>00056         <span class="keyword">public</span> <span class="keywordtype">int</span> <a class="code" href="class_virtual___keyboard_1_1_keyboard.html#aec8f81cf1f6cd6203f19ff218276cdba">Nb_touches</a>
+<a name="l00057"></a><a class="code" href="class_virtual___keyboard_1_1_keyboard.html#aec8f81cf1f6cd6203f19ff218276cdba">00057</a>         {
+<a name="l00058"></a>00058             <span class="keyword">get</span> { <span class="keywordflow">return</span> _Nb_touches; }
+<a name="l00059"></a>00059             <span class="keyword">set</span> { _Nb_touches = value; }
+<a name="l00060"></a>00060         }
+<a name="l00061"></a>00061         <span class="keyword">public</span> <span class="keywordtype">int</span> <a class="code" href="class_virtual___keyboard_1_1_keyboard.html#a615fc84d7d1be9929d7cff3a08bd7fa8">Largeur_Touche</a>
+<a name="l00062"></a><a class="code" href="class_virtual___keyboard_1_1_keyboard.html#a615fc84d7d1be9929d7cff3a08bd7fa8">00062</a>         {
+<a name="l00063"></a>00063             <span class="keyword">get</span> { <span class="keywordflow">return</span> _Largeur_touche; }
+<a name="l00064"></a>00064             <span class="keyword">set</span> { _Largeur_touche = value; }
+<a name="l00065"></a>00065         }
+<a name="l00066"></a>00066 
+<a name="l00067"></a>00067         <span class="keyword">public</span> <span class="keywordtype">int</span> <a class="code" href="class_virtual___keyboard_1_1_keyboard.html#a581dc56fc727e4c95b994694ab80d6ee">Largeur_Origin</a>
+<a name="l00068"></a><a class="code" href="class_virtual___keyboard_1_1_keyboard.html#a581dc56fc727e4c95b994694ab80d6ee">00068</a>         {
+<a name="l00069"></a>00069             <span class="keyword">get</span> { <span class="keywordflow">return</span> _Largeur_origin; }
+<a name="l00070"></a>00070         }
+<a name="l00071"></a>00071 
+<a name="l00072"></a>00072         <span class="keyword">public</span> Point <a class="code" href="class_virtual___keyboard_1_1_keyboard.html#ad1021d3acbb4358b547e807a950ebda4">Pos</a>
+<a name="l00073"></a><a class="code" href="class_virtual___keyboard_1_1_keyboard.html#ad1021d3acbb4358b547e807a950ebda4">00073</a>         {
+<a name="l00074"></a>00074             <span class="keyword">get</span> { <span class="keywordflow">return</span> _Pos; }
+<a name="l00075"></a>00075             <span class="keyword">set</span> { _Pos = value; }
+<a name="l00076"></a>00076         }
+<a name="l00077"></a>00077 
+<a name="l00078"></a>00078         <span class="keyword">public</span> Point <a class="code" href="class_virtual___keyboard_1_1_keyboard.html#af9cfdbfaf7f5a4d6e17d66851bb6334a">Pos_Origin</a>
+<a name="l00079"></a><a class="code" href="class_virtual___keyboard_1_1_keyboard.html#af9cfdbfaf7f5a4d6e17d66851bb6334a">00079</a>         {
+<a name="l00080"></a>00080             <span class="keyword">get</span> { <span class="keywordflow">return</span> _Pos_Origin; }
+<a name="l00081"></a>00081             <span class="keyword">set</span> { _Pos_Origin = value; }
+<a name="l00082"></a>00082         }
+<a name="l00083"></a>00083 <span class="preprocessor">        #endregion</span>
+<a name="l00084"></a>00084 <span class="preprocessor"></span>
+<a name="l00085"></a>00085 <span class="preprocessor">        #region methodes</span>
+<a name="l00086"></a>00086 <span class="preprocessor"></span>
+<a name="l00093"></a><a class="code" href="class_virtual___keyboard_1_1_keyboard.html#a124532dc53d8bd6c9b7d14ecbdaed470">00093</a>         <span class="keyword">public</span> <span class="keywordtype">void</span> <a class="code" href="class_virtual___keyboard_1_1_keyboard.html#a124532dc53d8bd6c9b7d14ecbdaed470">Charger_fichier</a>(<span class="keywordtype">string</span> nom_du_fichier)
+<a name="l00094"></a>00094         {
+<a name="l00095"></a>00095             XmlDocument xml = <span class="keyword">new</span> XmlDocument();
+<a name="l00096"></a>00096             <span class="keywordflow">try</span>
+<a name="l00097"></a>00097             {
+<a name="l00098"></a>00098                 xml.Load(nom_du_fichier);
+<a name="l00099"></a>00099             }
+<a name="l00100"></a>00100             <span class="keywordflow">catch</span> (Exception e)
+<a name="l00101"></a>00101             {
+<a name="l00102"></a>00102                 <span class="keywordflow">throw</span> e;
+<a name="l00103"></a>00103             }
+<a name="l00104"></a>00104 
+<a name="l00105"></a>00105             <a class="code" href="class_virtual___keyboard_1_1_touche.html">Touche</a> temp;
+<a name="l00106"></a>00106             <span class="keywordflow">try</span>
+<a name="l00107"></a>00107             {
+<a name="l00108"></a>00108                 XmlAttributeCollection info;
+<a name="l00109"></a>00109                 XmlNode nb_ligne = xml.SelectSingleNode(<span class="stringliteral">&quot;/clavier/infos/nblignes&quot;</span>);
+<a name="l00110"></a>00110                 info = nb_ligne.Attributes;
+<a name="l00111"></a>00111                 _Nb_lignes = <span class="keywordtype">int</span>.Parse(info.Item(0).InnerText);
+<a name="l00112"></a>00112                 XmlNode nb_colone = xml.SelectSingleNode(<span class="stringliteral">&quot;/clavier/infos/nbcolones&quot;</span>);
+<a name="l00113"></a>00113                 info = nb_colone.Attributes;
+<a name="l00114"></a>00114                 _Nb_colones = <span class="keywordtype">int</span>.Parse(info.Item(0).InnerText);
+<a name="l00115"></a>00115             }
+<a name="l00116"></a>00116             <span class="keywordflow">catch</span> (Exception e)
+<a name="l00117"></a>00117             {
+<a name="l00118"></a>00118                 <span class="keywordflow">throw</span> e;
+<a name="l00119"></a>00119             }
+<a name="l00120"></a>00120             XmlNodeList liste_noeud = xml.SelectNodes(<span class="stringliteral">&quot;/clavier/listetouches/touche&quot;</span>);
+<a name="l00121"></a>00121             <span class="keywordflow">try</span>
+<a name="l00122"></a>00122             {
+<a name="l00123"></a>00123                 <span class="keywordflow">foreach</span> (XmlNode n <span class="keywordflow">in</span> liste_noeud)
+<a name="l00124"></a>00124                 {
+<a name="l00125"></a>00125                     Point P = <span class="keyword">new</span> Point(0, 0);
+<a name="l00126"></a>00126                     XmlAttributeCollection info_touche = n.Attributes;
+<a name="l00127"></a>00127                     <span class="keywordtype">string</span> S = info_touche.Item(0).InnerText;
+<a name="l00128"></a>00128                     <span class="keywordtype">string</span> L = info_touche.Item(1).InnerText;
+<a name="l00129"></a>00129                     <span class="keywordtype">string</span> T = info_touche.Item(2).InnerText;
+<a name="l00130"></a>00130                     <span class="keywordflow">switch</span> (T)
+<a name="l00131"></a>00131                     {
+<a name="l00132"></a>00132                         <span class="keywordflow">case</span> <span class="stringliteral">&quot;v&quot;</span>:
+<a name="l00133"></a>00133                             temp = <span class="keyword">new</span> <a class="code" href="class_virtual___keyboard_1_1_touche___voyelle.html">Touche_Voyelle</a>(S,L, P, _Largeur_touche);
+<a name="l00134"></a>00134                             <span class="keywordflow">break</span>;
+<a name="l00135"></a>00135                         <span class="keywordflow">case</span> <span class="stringliteral">&quot;e&quot;</span>:
+<a name="l00136"></a>00136                              temp = <span class="keyword">new</span> <a class="code" href="class_virtual___keyboard_1_1_touche___enter.html">Touche_Enter</a>(S,L, P, _Largeur_touche);
+<a name="l00137"></a>00137                              <span class="keywordflow">break</span>;
+<a name="l00138"></a>00138                         <span class="keywordflow">case</span> <span class="stringliteral">&quot;b&quot;</span>:
+<a name="l00139"></a>00139                              temp = <span class="keyword">new</span> <a class="code" href="class_virtual___keyboard_1_1_touche___backspace.html">Touche_Backspace</a>(S,L, P, _Largeur_touche);
+<a name="l00140"></a>00140                              <span class="keywordflow">break</span>;
+<a name="l00141"></a>00141                         <span class="keywordflow">default</span>:
+<a name="l00142"></a>00142                             temp = <span class="keyword">new</span> <a class="code" href="class_virtual___keyboard_1_1_touche.html">Touche</a>(S,L, P, _Largeur_touche);
+<a name="l00143"></a>00143                             <span class="keywordflow">break</span>;
+<a name="l00144"></a>00144 
+<a name="l00145"></a>00145                     }
+<a name="l00146"></a>00146                     _Touches.Add(temp);
+<a name="l00147"></a>00147                     _Nb_touches++;
+<a name="l00148"></a>00148                 }
+<a name="l00149"></a>00149                 <a class="code" href="class_virtual___keyboard_1_1_keyboard.html#a1a0be26415f1dec517cbb5b2fef2c87e">Mise_a_jour_Clavier</a>();
+<a name="l00150"></a>00150             }
+<a name="l00151"></a>00151             <span class="keywordflow">catch</span> (Exception e)
+<a name="l00152"></a>00152             {
+<a name="l00153"></a>00153                 <span class="keywordflow">throw</span> e;
+<a name="l00154"></a>00154             }
+<a name="l00155"></a>00155 
+<a name="l00156"></a>00156         }
+<a name="l00161"></a><a class="code" href="class_virtual___keyboard_1_1_keyboard.html#a1a0be26415f1dec517cbb5b2fef2c87e">00161</a>         <span class="keyword">public</span> <span class="keywordtype">void</span> <a class="code" href="class_virtual___keyboard_1_1_keyboard.html#a1a0be26415f1dec517cbb5b2fef2c87e">Mise_a_jour_Clavier</a>()
+<a name="l00162"></a>00162         {
+<a name="l00163"></a>00163             Point temp = _Pos;
+<a name="l00164"></a>00164             <span class="keywordtype">int</span> i = 0;
+<a name="l00165"></a>00165             <span class="keywordtype">int</span> decalage = _Largeur_touche;
+<a name="l00166"></a>00166             <span class="keywordflow">foreach</span> (<a class="code" href="class_virtual___keyboard_1_1_touche.html">Touche</a> t <span class="keywordflow">in</span> _Touches)
+<a name="l00167"></a>00167             {
+<a name="l00168"></a>00168                 i++;
+<a name="l00169"></a>00169                 t.<a class="code" href="class_virtual___keyboard_1_1_touche.html#a2e256369f78d495e40a2baba8911f54b">Largeur</a> = _Largeur_touche;
+<a name="l00170"></a>00170                 t.<a class="code" href="class_virtual___keyboard_1_1_touche.html#a120221cc475e691827309884d9be1f87">set_position</a>(temp);
+<a name="l00171"></a>00171                 <span class="keywordflow">if</span> (i &lt; _Nb_colones)
+<a name="l00172"></a>00172                 {
+<a name="l00173"></a>00173                     temp.X = temp.X + 2*_Largeur_touche + 1;
+<a name="l00174"></a>00174                 }
+<a name="l00175"></a>00175                 <span class="keywordflow">else</span>
+<a name="l00176"></a>00176                 {
+<a name="l00177"></a>00177                     temp.X = _Pos.X;
+<a name="l00178"></a>00178                     <span class="keywordflow">if</span> (decalage &gt; 0)
+<a name="l00179"></a>00179                     {
+<a name="l00180"></a>00180                           temp.X += decalage;
+<a name="l00181"></a>00181                     }
+<a name="l00182"></a>00182                     temp.Y = temp.Y + 3*_Largeur_touche/2;
+<a name="l00183"></a>00183                     decalage = -1*decalage;
+<a name="l00184"></a>00184                     i = 0;
+<a name="l00185"></a>00185                 }
+<a name="l00186"></a>00186                 
+<a name="l00187"></a>00187 
+<a name="l00188"></a>00188             }
+<a name="l00189"></a>00189         }
+<a name="l00195"></a><a class="code" href="class_virtual___keyboard_1_1_keyboard.html#ac5235f6f7441ae9a35024e03300e4b0d">00195</a>         <span class="keyword">public</span> <span class="keywordtype">void</span> <a class="code" href="class_virtual___keyboard_1_1_keyboard.html#ac5235f6f7441ae9a35024e03300e4b0d">Dessin</a>(Graphics graf)
+<a name="l00196"></a>00196         {
+<a name="l00197"></a>00197             <span class="keywordflow">foreach</span> (<a class="code" href="class_virtual___keyboard_1_1_touche.html">Touche</a> t <span class="keywordflow">in</span> _Touches)
+<a name="l00198"></a>00198             {
+<a name="l00199"></a>00199                 t.<a class="code" href="class_virtual___keyboard_1_1_touche.html#a321c663f62ddb5a8f15bc419f18fc9ef">Dessin</a>(graf);
+<a name="l00200"></a>00200             }
+<a name="l00201"></a>00201         }
+<a name="l00202"></a>00202 <span class="preprocessor">        #endregion</span>
+<a name="l00203"></a>00203 <span class="preprocessor"></span>
+<a name="l00209"></a><a class="code" href="class_virtual___keyboard_1_1_keyboard.html#aa1ba94923486b50381ab59023e5f5e25">00209</a>         <span class="keyword">public</span> <a class="code" href="class_virtual___keyboard_1_1_touche.html">Touche</a> <a class="code" href="class_virtual___keyboard_1_1_keyboard.html#aa1ba94923486b50381ab59023e5f5e25">Valide</a>(Point p)
+<a name="l00210"></a>00210         {
+<a name="l00211"></a>00211             <span class="keywordflow">foreach</span> (<a class="code" href="class_virtual___keyboard_1_1_touche.html">Touche</a> t <span class="keywordflow">in</span> _Touches)
+<a name="l00212"></a>00212             {
+<a name="l00213"></a>00213                 t.<a class="code" href="class_virtual___keyboard_1_1_touche.html#a8c2e33d05568bacc6bf310b9d8e25536">Color_Back_To_Origin</a>();
+<a name="l00214"></a>00214                 <span class="keywordflow">if</span> (t.<a class="code" href="class_virtual___keyboard_1_1_touche.html#ae9e4027d27e89df9f1764832348b8f11">Is_in</a>(p))
+<a name="l00215"></a>00215                 {
+<a name="l00216"></a>00216                     t.<a class="code" href="class_virtual___keyboard_1_1_touche.html#a25aa5c0e7a8e72af9446cf94a90e8269">Inverse_Color</a>();
+<a name="l00217"></a>00217                     <span class="keywordflow">return</span> t;
+<a name="l00218"></a>00218                 }
+<a name="l00219"></a>00219             }
+<a name="l00220"></a>00220             <span class="keywordflow">return</span> null;
+<a name="l00221"></a>00221         }
+<a name="l00222"></a>00222     }
+<a name="l00223"></a>00223 }
+</pre></div></div><!-- contents -->
+</div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Espaces de nommage</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Fichiers</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Fonctions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Propriétés</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="_clavier_8cs.html">Clavier.cs</a>      </li>
+
+    <li class="footer">Généré le Lundi Janvier 16 2012 11:38:28 pour Projet M1 par
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.6.1 </li>
+   </ul>
+ </div>
+
+
+</body>
+</html>
